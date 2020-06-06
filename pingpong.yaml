@@ -1,0 +1,28 @@
+kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: pingpong
+  name: pingpong
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: pingpong
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: pingpong
+    spec:
+      containers:
+      - args:
+        - ping
+        - 1.1.1.1
+        image: alpine
+        name: pingpong
+        resources: {}
+status: {}
